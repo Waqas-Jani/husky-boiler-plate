@@ -1,15 +1,28 @@
 {
-  "env": {
-    "browser": true,
-    "es2021": true,
-    "jest": true
-  },
-  "extends": ["plugin:react/recommended", "airbnb", "prettier"],
-  "overrides": [],
-  "parserOptions": {
-    "ecmaVersion": "latest",
-    "sourceType": "module"
-  },
-  "plugins": ["react"],
-  "rules": {}
+	"env": {
+		"browser": true,
+		"es2021": true,
+		"jest": true
+	},
+	"extends": ["plugin:react/recommended", "airbnb", "prettier"],
+	"overrides": [],
+	"parserOptions": {
+		"ecmaFeatures": {
+			"jsx": true
+		},
+		"ecmaVersion": "latest",
+		"sourceType": "module"
+	},
+	"plugins": ["react", "prettier"],
+	"rules": {
+		"indent": [2, "tab"],
+		"no-tabs": 0,
+		"quotes": ["error", "single"], // error when double quotes
+		"semi": "error", // when semi colon missing
+		"comma-dangle": "off",
+		"prettier/prettier": "error",
+		"no-unused-vars":"error", // error when un-used var/let/const etc exist in a file
+		"import/prefer-default-export":"off", // disable the export default required in a file
+		"react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }]
+	}
 }
