@@ -22,7 +22,8 @@
 		"comma-dangle": "off",
 		"prettier/prettier": "error",
 		"no-unused-vars": "error", // error when un-used var/let/const etc exist in a file
-		"import/prefer-default-export": "off", // disable the export default required in a file
+		"import/prefer-default-export": "off", // disable the export default required in a file,
+		"no-console": ["error", { "allow": ["warn", "error"] }],
 		"react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }]
 	}
 }
