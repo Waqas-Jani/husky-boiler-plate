@@ -21,8 +21,8 @@
 		"semi": "error", // when semi colon missing
 		"comma-dangle": "off",
 		"prettier/prettier": "error",
-		"no-unused-vars":"error", // error when un-used var/let/const etc exist in a file
-		"import/prefer-default-export":"off", // disable the export default required in a file
+		"no-unused-vars": "error", // error when un-used var/let/const etc exist in a file
+		"import/prefer-default-export": "off", // disable the export default required in a file
 		"react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }]
 	}
 }
