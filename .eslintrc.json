@@ -5,7 +5,11 @@
 		"jest": true
 	},
 	"extends": ["plugin:react/recommended", "airbnb", "prettier"],
-	"overrides": [],
+	"overrides": [
+		{
+			"files": ["src/**/*.jsx"]
+		}
+	],
 	"parserOptions": {
 		"ecmaFeatures": {
 			"jsx": true
