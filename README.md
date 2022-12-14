@@ -69,8 +69,152 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 
-### Husky, EsLint and Prettier Setup
+## Husky, EsLint and Prettier Setup
 
 Packages need to install in devDependencies
 
-npm i prettier eslint eslint-plugin-prettier husky lint-staged eslint-config-prettier
+```sh
+cd project-folder
+npm i prettier eslint eslint-plugin-prettier husky lint-staged eslint-config-prettier -D
+```
+### Create the file .prettierrc and paste the config
+```sh
+{
+	"trailingComma": "es5",
+	"tabWidth": 4,
+	"useTabs": true,
+	"printWidth": 80,
+	"semi": true,
+	"singleQuote": true,
+	"endOfLine": "lf"
+}
+```
+### Run the command to generate the eslint configuration
+```sh
+npm init @eslint/config
+```
+There are different option and select according to your project.
+
+| Option | Select |
+| ------ | ------ |
+| How would you like to use ESLint? | To check syntax, find problems, and enforce code style |
+| What type of modules does your project use? | JavaScript modules (import/export) |
+| Which framework does your project use? | Your Project e.g React | 
+| Does your project use TypeScript? | If you are using Typescript "Yes" | 
+| Where does your code run? | Browser |
+| How would you like to define a style for your project? | Use a popular style guide |
+| Which style guide do you want to follow? | Airbnb: [https://github.com/airbnb/javascript] |
+| What format do you want your config file to be in? | JSON |
+| Would you like to install them now? | Yes |
+| Which package manager do you want to use? | Which you are using. e.g npm/yarn/pnpm |
+
+### After that ..eslintrc.json file created with default config. Paste below config or add which you want
+
+```sh
+{
+	"env": {
+		"browser": true,
+		"es2021": true,
+		"jest": true
+	},
+	"extends": ["plugin:react/recommended", "airbnb", "prettier"],
+	"overrides": [
+		{
+			"files": ["src/**/*.jsx"]
+		}
+	],
+	"parserOptions": {
+		"ecmaFeatures": {
+			"jsx": true
+		},
+		"ecmaVersion": "latest",
+		"sourceType": "module"
+	},
+	"plugins": ["react", "prettier"],
+	"rules": {
+		"indent": [2, "tab"],
+		"no-tabs": 0,
+		"quotes": ["off", "single"], // error when double quotes
+		"semi": "error", // when semi colon missing
+		"comma-dangle": "off",
+		"prettier/prettier": "error",
+		"no-unused-vars": "error", // error when un-used var/let/const etc exist in a file
+		"import/prefer-default-export": "off", // disable the export default required in a file,
+		// "no-console": ["error", { "allow": ["warn", "error"] }],
+		"no-console": "error",
+		"react/jsx-props-no-spreading": [
+			2,
+			{
+				"html": "enforce",
+				"custom": "ignore",
+				"explicitSpread": "ignore",
+				"exceptions": ["Image", "img"]
+			}
+		],
+		"jsx-a11y/anchor-is-valid": 0,
+		"react/prop-types": "off",
+		"react/jsx-curly-brace-presence": "off",
+		"react/no-array-index-key": "off",
+		"react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }]
+	}
+}
+```
+## Add the script into package.json file
+```sh
+"lint": "eslint . --fix --max-warnings=0",
+"format": "prettier . --write",
+"husky": "husky install"
+```
+
+### Note: In your project, maybe some files you don’t want to lint or format. So you can add them to .eslintignore file if haven't not then create it
+
+```sh
+node_modules
+public
+build
+.cache
+package-lock.json
+```
+
+## Husky 
+
+To force our coding style & format, we will use git hook. So that if anyone commits any code, it runs some linting and check if there is any issue with it. For this, required packages installed above list.
+
+
+### Edit package.json file and add below code
+```sh
+"lint-staged": {
+		"**/*.{js,jsx}": [
+			"npm run lint",
+			"prettier --write"
+		]
+}
+```
+With these four lines, we are just linting and formatting our code. But it’s not called from anywhere now. So we need to call it from somewhere. But before that, we need to install husky properly to run it –
+
+```sh
+npx husky-init && npm install
+```
+
+This will create a folder called .husky and inside it a file called pre-commit which will run npm test before committing. But for the current project, we don’t want to run the npm test, so we are going to change it into –
+
+```sh
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+# npm test
+npx lint-staged
+```
+
+## All Done 
+
+
+Refference Docs: [https://blog.nerdjfpb.com/how-to-add-eslint-prettier-and-husky-git-hook-in-react-js-2022/]
+
+
+
+
+
+
+
+
