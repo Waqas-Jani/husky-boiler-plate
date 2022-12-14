@@ -21,7 +21,7 @@
 	"rules": {
 		"indent": [2, "tab"],
 		"no-tabs": 0,
-		"quotes": ["error", "single"], // error when double quotes
+		"quotes": ["off", "single"], // error when double quotes
 		"semi": "error", // when semi colon missing
 		"comma-dangle": "off",
 		"prettier/prettier": "error",
@@ -29,6 +29,19 @@
 		"import/prefer-default-export": "off", // disable the export default required in a file,
 		// "no-console": ["error", { "allow": ["warn", "error"] }],
 		"no-console": "error",
+		"react/jsx-props-no-spreading": [
+			2,
+			{
+				"html": "enforce",
+				"custom": "ignore",
+				"explicitSpread": "ignore",
+				"exceptions": ["Image", "img"]
+			}
+		],
+		"jsx-a11y/anchor-is-valid": 0,
+		"react/prop-types": "off",
+		"react/jsx-curly-brace-presence": "off",
+		"react/no-array-index-key": "off",
 		"react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }]
 	}
 }
