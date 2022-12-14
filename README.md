@@ -68,3 +68,9 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+### Husky, EsLint and Prettier Setup
+
+Packages need to install in devDependencies
+
+npm i prettier eslint eslint-plugin-prettier husky lint-staged eslint-config-prettier
