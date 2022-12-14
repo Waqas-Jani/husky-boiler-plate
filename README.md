@@ -69,7 +69,8 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 
-## Husky, EsLint and Prettier Setup
+
+# Husky, EsLint and Prettier Setup
 
 Packages need to install in devDependencies
 
@@ -108,7 +109,7 @@ There are different option and select according to your project.
 | Would you like to install them now? | Yes |
 | Which package manager do you want to use? | Which you are using. e.g npm/yarn/pnpm |
 
-### After that ..eslintrc.json file created with default config. Paste below config or add which you want
+### After that .eslintrc.json file created with default config. Paste below config or add which you want
 
 ```sh
 {
