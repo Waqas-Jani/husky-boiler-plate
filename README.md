@@ -105,6 +105,20 @@ build
 package-lock.json
 ```
 
+### Note: In your project, maybe some files you don’t want to format. So you can add them to .prettierignore file if haven't not then create it
+
+```sh
+build
+coverage
+public
+.cache
+node_module
+package-lock.json
+yarn.lock
+*.html
+/.next/
+```
+
 ## Husky 
 
 To force our coding style & format, we will use git hook. So that if anyone commits any code, it runs some linting and check if there is any issue with it. For this, required packages installed above list.
